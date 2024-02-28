@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iomanip>
 #include <iostream>
 #include <map>
@@ -69,10 +70,15 @@ void print(map<string, vector<string>> matrix) {
 }
 
 void print(vector<pair<string, vector<string>>> matrix) {
-  for (auto x : matrix) {
-    cout << setw(10) << x.first << " => ";
-    for (auto y : x.second) {
-      cout << setw(10) << y;
+  auto remove_chars = [](string &str, char ch) {
+    str.erase(std::remove(str.begin(), str.end(), ch), str.end());
+    return str;
+  };
+  for (const auto &row : matrix) {
+    string result = row.first;
+    cout << setw(10) << remove_chars(result, '.') + " => ";
+    for (size_t i = 0; i < row.second.size(); ++i) {
+      cout << setw(10) << row.second[i];
     }
     cout << endl;
   }

@@ -100,7 +100,10 @@ int main() {
   file.close();
 
   cout << "Constructing DFA Matrix\n";
-  construct_dfa_matrix("0", nfa_matrix, dfa_matrix, visited_states);
+  for (int state = 0; state < i; state++) {
+    construct_dfa_matrix(to_string(state), nfa_matrix, dfa_matrix,
+                         visited_states);
+  }
   cout << "DFA Matrix Constructed\n";
 
   cout << "dfa_matrix        :\n";
@@ -120,9 +123,13 @@ void construct_dfa_matrix(string source_state, map<string, vector<string>> &nfa,
                           vector<pair<string, vector<string>>> &dfa,
                           unordered_set<string> &visited_states) {
 
+  const char delim = '.';
+
   if (visited_states.find(source_state) != visited_states.end()) {
     return;
   }
+
+  cout << "SOURCE  :  " << source_state << endl;
 
   visited_states.insert(source_state);
 
@@ -130,13 +137,12 @@ void construct_dfa_matrix(string source_state, map<string, vector<string>> &nfa,
   vector<string> new_states;
   vector<set<string>> unique_states;
 
-  if (contains('-', source_state)) {
-    vector<string> multiple_sources = split('-', source_state);
+  if (contains(delim, source_state)) {
+    vector<string> multiple_sources = split(delim, source_state);
     for (const string &s : multiple_sources) {
 
       if (nfa.find(s) == nfa.end()) {
-        cerr << "Error: Source state not found in NFA map\n";
-        return;
+        continue;
       }
 
       vector<string> dest_state = nfa[s];
@@ -156,7 +162,6 @@ void construct_dfa_matrix(string source_state, map<string, vector<string>> &nfa,
   } else {
 
     if (nfa.find(source_state) == nfa.end()) {
-      cerr << "Error: Source state not found in NFA map\n";
       return;
     }
 
@@ -178,7 +183,7 @@ void construct_dfa_matrix(string source_state, map<string, vector<string>> &nfa,
 
   for (const set<string> &s : unique_states) {
     vector<string> combined_state = vector<string>(s.begin(), s.end());
-    new_states.push_back(join('-', combined_state));
+    new_states.push_back(join(delim, combined_state));
     dfa_row.push_back(join(',', combined_state));
   }
 
