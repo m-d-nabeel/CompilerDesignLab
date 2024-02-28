@@ -183,6 +183,7 @@ void construct_dfa_matrix(string source_state, map<string, vector<string>> &nfa,
   }
 
   dfa.push_back(make_pair(source_state, dfa_row));
+  nfa[source_state] = dfa_row;
   for (const string &s : new_states) {
     construct_dfa_matrix(s, nfa, dfa, visited_states);
   }
