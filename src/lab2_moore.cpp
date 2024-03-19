@@ -95,7 +95,7 @@ vector<int> get_transitions(string &line) {
 }
 
 int main() {
-  ifstream file("../data/lab2_moore.txt", ios::in);
+  ifstream file("data/lab2_moore.txt", ios::in);
   if (!file.is_open()) {
     cerr << "File opening failed\n";
     return 1;

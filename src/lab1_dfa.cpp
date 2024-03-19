@@ -6,7 +6,8 @@ using namespace std;
 
 int finalStates(vector<int> &v, int c) {
   for (int i = 0; i < v.size(); i++) {
-    if (v[i] == c) return 1;
+    if (v[i] == c)
+      return 1;
   }
   return 0;
 }
@@ -28,7 +29,7 @@ vector<int> stringToVector(string &line) {
 }
 
 int isAccepted(string &s) {
-  fstream file("../data/lab1_dfa.txt", ios::in);
+  fstream file("data/lab1_dfa.txt", ios::in);
   int n = s.size();
   vector<vector<int>> v;
   string line;
@@ -68,9 +69,9 @@ int isAccepted(string &s) {
 
 int main() {
 
-  fstream file("../data/lab1_dfa.txt");
-  if(!file.is_open()){
-    cerr<<"File opening failed"<<endl;
+  fstream file("data/lab1_dfa.txt");
+  if (!file.is_open()) {
+    cerr << "File opening failed" << endl;
     return EXIT_FAILURE;
   }
   string s;

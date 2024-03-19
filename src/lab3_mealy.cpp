@@ -109,7 +109,7 @@ vector<pair<int, int>> get_transitions(string &line) {
 }
 
 int main() {
-  ifstream file("../data/lab3_mealy.txt", ios::in);
+  ifstream file("data/lab3_mealy.txt", ios::in);
   if (!file.is_open()) {
     cerr << "File opening failed\n";
     return 1;

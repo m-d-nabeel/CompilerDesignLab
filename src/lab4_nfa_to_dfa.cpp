@@ -60,7 +60,7 @@ vector<string> get_transitions(string &line) {
 }
 
 int main() {
-  ifstream file("../data/lab4_nfa_to_dfa.txt", ios::in);
+  ifstream file("data/lab4_nfa_to_dfa.txt", ios::in);
   string line;
   int i = 0, initial_state = 0;
   vector<int> final_state;
