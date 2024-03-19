@@ -75,10 +75,12 @@ void print(vector<pair<string, vector<string>>> matrix) {
     return str;
   };
   for (const auto &row : matrix) {
-    string result = row.first;
-    cout << setw(10) << remove_chars(result, '.') + " => ";
+    string first = row.first;
+    cout << setw(10) << remove_chars(first, '.') + " => ";
     for (size_t i = 0; i < row.second.size(); ++i) {
-      cout << setw(10) << row.second[i];
+      string secondTemp = row.second[i];
+      // cout << setw(10) << row.second[i];
+      cout << setw(10) << remove_chars(secondTemp, ',');
     }
     cout << endl;
   }

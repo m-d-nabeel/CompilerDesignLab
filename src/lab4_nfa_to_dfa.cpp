@@ -110,12 +110,15 @@ int main() {
   print(dfa_matrix);
 
   // USER USE CASE
+  /**
+  // No User Involvement Required
   string user_input = "";
   while (true) {
     cout << "Input Text    : ";
     cin >> ws;
     getline(cin, user_input);
   }
+  */
   return 0;
 }
 
@@ -129,7 +132,7 @@ void construct_dfa_matrix(string source_state, map<string, vector<string>> &nfa,
     return;
   }
 
-  cout << "SOURCE  :  " << source_state << endl;
+  // cout << "SOURCE  :  " << source_state << endl;
 
   visited_states.insert(source_state);
 
