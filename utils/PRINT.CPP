@@ -1,8 +1,10 @@
-#include <algorithm>
+// #include <algorithm>
+#include <cstddef>
 #include <iomanip>
 #include <iostream>
 #include <map>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 using namespace std;
@@ -50,7 +52,7 @@ void print(vector<vector<pair<int, int>>> &v) {
 }
 
 void print(vector<vector<int>> &v1, vector<int> &v2) {
-  for (int i = 0; i < v1.size(); i++) {
+  for (size_t i = 0; i < v1.size(); i++) {
     for (auto y : v1[i]) {
       cout << setw(5) << y;
     }
@@ -70,10 +72,10 @@ void print(map<string, vector<string>> matrix) {
 }
 
 void print(vector<pair<string, vector<string>>> matrix) {
-  auto remove_chars = [](string &str, char ch) {
-    str.erase(std::remove(str.begin(), str.end(), ch), str.end());
-    return str;
-  };
+  // auto remove_chars = [](string &str, char ch) {
+  //   str.erase(std::remove(str.begin(), str.end(), ch), str.end());
+  //   return str;
+  // };
   for (const auto &row : matrix) {
     string first = row.first;
     cout << setw(10) << first + " => ";
@@ -82,6 +84,26 @@ void print(vector<pair<string, vector<string>>> matrix) {
       string secondTemp = row.second[i];
       cout << setw(10) << row.second[i];
       // cout << setw(10) << remove_chars(secondTemp, ',');
+    }
+    cout << endl;
+  }
+}
+
+void print(std::unordered_map<char, std::vector<char>> matrix) {
+  for (auto x : matrix) {
+    cout << setw(2) << x.first << " => ";
+    for (auto y : x.second) {
+      cout << setw(2) << y;
+    }
+    cout << endl;
+  }
+}
+
+void print(std::unordered_map<char, std::vector<string>> matrix) {
+  for (auto x : matrix) {
+    cout << setw(2) << x.first << " => ";
+    for (auto y : x.second) {
+      cout << setw(10) << y;
     }
     cout << endl;
   }
