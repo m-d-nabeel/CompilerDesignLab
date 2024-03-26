@@ -213,8 +213,21 @@ This section illustrates an example of finding the first and follow sets for a g
 E -> TX
 X -> +TX | E
 T -> FY
-Y -> FY | ^
+Y -> FY | ε
 F -> (E) | id
+
+```
+
+### Example 1:
+
+```
+
+A -> BC
+C -> +BC | A
+B -> DE
+E -> DE | ε
+D -> (A) | id
+D -> + | A
 
 ```
 

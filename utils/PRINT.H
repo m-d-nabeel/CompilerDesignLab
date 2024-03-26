@@ -15,6 +15,7 @@ void print(std::vector<std::vector<int>> &v1, std::vector<int> &v2);
 void print(std::map<std::string, std::vector<std::string>> matrix);
 void print(std::unordered_map<char, std::vector<char>> matrix);
 void print(std::unordered_map<char, std::vector<std::string>> matrix);
+void print(std::map<char, std::vector<std::string>> matrix);
 
 void print(
     std::vector<std::pair<std::string, std::vector<std::string>>> matrix);

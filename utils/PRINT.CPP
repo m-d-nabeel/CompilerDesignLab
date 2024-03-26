@@ -103,7 +103,19 @@ void print(std::unordered_map<char, std::vector<string>> matrix) {
   for (auto x : matrix) {
     cout << setw(2) << x.first << " => ";
     for (auto y : x.second) {
-      cout << setw(10) << y;
+      cout << setw(4) << y;
+    }
+    cout << endl;
+  }
+}
+
+void print(std::map<char, std::vector<string>> matrix) {
+  for (auto x : matrix) {
+    cout << setw(2) << x.first << " -> ";
+    for (size_t i = 0; i < x.second.size(); i++) {
+      cout << setw(4) << x.second[i];
+      if (i + 1 < x.second.size())
+        cout << setw(4) << "|";
     }
     cout << endl;
   }

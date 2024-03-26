@@ -1,5 +1,6 @@
-E -> TX
-X -> +TX | E
-T -> FY
-Y -> FY | ^
-F -> (E) | id
+A -> BC
+C -> +BC | A
+B -> DE
+E -> DE | ε
+D -> (A) | id
+D -> + | A
